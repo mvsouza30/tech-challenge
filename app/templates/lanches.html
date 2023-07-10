@@ -1,0 +1,47 @@
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .card-img-top {
+      width: 200px;
+      height: 150px;
+    }
+  </style>
+  <title>Lanches</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center">Lanchonete QTOP! - Lanches</h1>
+    <br>
+    <br>
+    <div class="row">
+      {% for lanche in lanches %}
+      <div class="col-md-4">
+        <div class="card mb-3">
+          <img src="{{ url_for('static', filename=lanche['lanche_foto']) }}" class="card-img-top" alt="{{ lanche['lanche_nome'] }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ lanche['lanche_nome'] }}</h5>
+            <p class="card-text">{{ lanche['lanche_descricao'] }}</p>
+            <p class="card-text">Preço: R$ {{ lanche['lanche_preco'] }}</p>
+            <a href="#" class="btn btn-primary add-to-cart" data-item="{{ lanche['lanche_nome'] }}">Adicionar ao Pedido</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <br>
+    <br>
+    <div class="text-center">
+      <a href="/bebidas" class="btn btn-primary">Bebidas</a>
+      <a href="/acompanhamentos" class="btn btn-primary">Acompanhamentos</a>
+      <a href="/sobremesas" class="btn btn-primary">Sobremesas</a>
+      <a href="/finalizar_pedido" class="btn btn-primary">Finalizar Pedido</a>
+    </div>
+    <br>
+  </div>
+</body>
+</html>
+

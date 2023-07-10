@@ -1,0 +1,35 @@
+version: '3'
+services:
+  db:
+    container_name: qtop_db
+    build: ./app/repositorios
+    networks:
+      - qtop_network
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    env_file:
+      - ./app/variaveis.env
+
+  qtop_app:
+    container_name: qtop_app
+    build: .
+    ports:
+      - '5000:5000'
+    depends_on:
+      - db
+    command: bash -c "sleep 8 && python app.py"
+    networks:
+      - qtop_network
+    env_file:
+      - ./app/variaveis.env
+
+volumes:
+  pgdata:
+
+networks:
+  qtop_network:
+    name: qtop_network
+
+

@@ -1,0 +1,80 @@
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Página de Lanches</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center">Lanchonete QTOP! - Cardápio</h1>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card mb-3">
+          <img src="static/hamburger.jpg" class="card-img-top" alt="hamburger" style="width: 200px; height: 150px;">
+          <div class="card-body">
+            <h5 class="card-title">Hamburger</h5>
+            <p class="card-text">1 Carne, queijo, alface, picles, tomate e cebola</p>
+            <p class="card-text">Preço: R$ 20,00</p>
+            <a href="#" class="btn btn-primary add-to-cart" data-item="hamburger">Adicionar ao Pedido</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-3">
+          <img src="static/sanduiche.jpg" class="card-img-top" alt="sanduiche" style="width: 200px; height: 150px;">
+          <div class="card-body">
+            <h5 class="card-title">Sanduíche</h5>
+            <p class="card-text">Pão de forma integral, alface, tomate, queijo e presunto</p>
+            <p class="card-text">Preço: R$ 15,00</p>
+            <a href="#" class="btn btn-primary add-to-cart" data-item="sanduiche">Adicionar ao Pedido</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-3">
+          <img src="static/hotdog.jpg" class="card-img-top" alt="hotdog" style="width: 200px; height: 150px;">
+          <div class="card-body">
+            <h5 class="card-title">Hot Dog</h5>
+            <p class="card-text">2 Salsichas, batata palha, alface e vinagrete</p>
+            <p class="card-text">Preço: R$ 12,00</p>
+            <a href="#" class="btn btn-primary add-to-cart" data-item="hotdog">Adicionar ao Pedido</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="text-center">
+      <a href="acompanhamentos.html" class="btn btn-primary">Acompanhamentos</a>
+      <a href="bebidas.html" class="btn btn-primary">Bebidas</a>
+      <a href="sobremesas.html" class="btn btn-primary">Sobremesas</a>
+    </div>
+    <br>
+    <br>
+    <div class="text-center">
+      <a href="#" class="btn btn-success" id="finalize-btn">Finalizar Pedido</a>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $(".add-to-cart").click(function() {
+        var item = $(this).data("item");
+        // Enfileirar o item no banco de dados (lógica do backend)
+        alert("Item '" + item + "' adicionado ao pedido!");
+      });
+
+      $("#finalize-btn").click(function() {
+        // Lógica para finalizar o pedido (lógica do backend)
+        alert("Pedido finalizado!");
+      });
+    });
+  </script>
+</body>
+</html>
